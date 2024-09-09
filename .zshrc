@@ -69,7 +69,7 @@ alias getWeather="curl wttr.in"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias showip='ip addr show eth0'
 
-source /home/harith/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(starship init zsh)"
 
@@ -102,6 +102,7 @@ PATH=~/.console-ninja/.bin:$PATH
 
 # go
 export GOROOT=/usr/local/go
+export GOCACHE=/usr/local/go-cache
 export PATH=$PATH:$GOROOT/bin
 
 # rust
