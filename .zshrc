@@ -59,14 +59,15 @@ alias cd="z"
 alias cat="bat"
 alias gco="git checkout"
 alias gcb="git checkout -b"
-alias air="~/go/bin/air"
-alias vegeta="~/go/bin/vegeta"
-alias swag="~/go/bin/swag"
+alias air="/usr/local/bin/air"
+alias vegeta="/usr/local/bin/vegeta"
+alias swag="/usr/local/bin/swag"
 alias initpy="python3 -m venv venv && source venv/bin/activate"
 alias pyfreeze="pip freeze > requirements.txt"
 alias python='python3'
 alias getWeather="curl wttr.in"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias showip='ip addr show eth0'
 
 source /home/harith/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -78,7 +79,7 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/harith/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
-
+z
 eval "$(fnm env --use-on-cd --shell zsh)"
 
 # bun completions
@@ -96,6 +97,12 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# console ninja
 PATH=~/.console-ninja/.bin:$PATH
 
-export PATH=$PATH:/usr/local/go/bin
+# go
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"
